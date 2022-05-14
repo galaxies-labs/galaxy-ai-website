@@ -1,0 +1,9 @@
+{
+    "short_name": "Galaxy AI Website",
+    "name": "The Galaxy AI Website",
+    "icons": [],
+    "start_url": ".",
+    "display": "standalone",
+    "theme_color": "#000000",
+    "background_color": "#ffffff"
+}

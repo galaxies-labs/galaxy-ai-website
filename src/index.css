@@ -1,0 +1,38 @@
+body {
+  margin: 0;
+  font-family: -apple-system, "Sans-Regular", BlinkMacSystemFont, "Segoe UI",
+    "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans",
+    "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, "Sans-Regular", Menlo, Monaco, Consolas,
+    "Courier New", monospace;
+}
+
+@font-face {
+  font-family: "Heebo-Bold";
+  src: url(/public/assets/fonts/Heebo-Bold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Brlnsdb";
+  src: url(/public/assets/fonts/Brlnsdb.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Sans-Light";
+  src: url(/public/assets/fonts/SourceSansPro-Light.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Sans-Regular";
+  src: url(/public/assets/fonts/SourceSansPro-Regular.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Sans-SemiBold";
+  src: url(/public/assets/fonts/SourceSansPro-SemiBold.ttf) format("truetype");
+}
+
+* {
+  box-sizing: border-box;
+}
