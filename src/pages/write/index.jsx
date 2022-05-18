@@ -30,8 +30,8 @@ export default function Write() {
 
 const MobileSetting = styled(ButtonBase)`
   img {
-    width: 30px;
-    height: 30px;
+    width: 24px;
+    height: 24px;
     object-fit: contain;
   }
   @media (min-width: ${device.tablet}) {
@@ -53,6 +53,7 @@ const Page = styled.div`
       justify-content: space-between;
     }
     @media (max-width: ${device.tablet}) {
+    margin-bottom: 0px;
       margin-top: 0px;
     }
   }

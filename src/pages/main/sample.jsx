@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { FlatButton } from "../../components/common"
+import { device } from "../../constants/common"
 
 const generated =
   "FamilyTime is the perfect app to share and create memories with your family. FamilyTime is a free, unlimited photo and video editor that allows you to create albums of your memories. It has a special filter for the perfect summer look and is so simple to use."
@@ -106,5 +107,10 @@ const Container = styled.div`
       color: #222222;
       flex: 1;
     }
+  }
+  @media (max-width: ${device.tablet}) {
+    padding: 30px 20px;
+    border-radius: 5px;
+    margin-bottom:60px ;
   }
 `

@@ -93,7 +93,6 @@ const Label = styled.p`
 const Container = styled.div`
   position: absolute;
   right: 0px;
-  border-top: 1px solid #222222;
   width: 220px;
   @media (max-width: ${contentWidth}) {
     position: relative;

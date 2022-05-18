@@ -99,14 +99,12 @@ const Container = styled.div`
     flex: 1;
     width: auto;
     box-shadow: none;
-    padding: 30px;
+    padding: 0px;
   }
   @media (max-width: ${device.labtop}) and (min-width: ${device.tablet}) {
     margin-right: 20px;
   }
-  @media (max-width: ${device.mobile}) {
-    padding: 0px;
-  }
+  
 `
 
 const StyledTitleInput = styled.input`
@@ -126,7 +124,7 @@ const StyledDescription = styled.textarea`
   flex-grow: 1;
   padding-top: 26px;
   padding-bottom: 26px;
-  font-family: "Sans-Light";
+  font-family: "Sans-Regular";
   color: #000;
   font-size: 18px;
   line-height: 26px;

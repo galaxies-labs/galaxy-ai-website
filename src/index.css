@@ -17,6 +17,10 @@ code {
   src: url(/public/assets/fonts/Heebo-Bold.ttf) format("truetype");
 }
 @font-face {
+  font-family: "Roboto-Black";
+  src: url(/public/assets/fonts/Roboto-Black.ttf) format("truetype");
+}
+@font-face {
   font-family: "Brlnsdb";
   src: url(/public/assets/fonts/Brlnsdb.ttf) format("truetype");
 }

@@ -1,6 +1,7 @@
 import { CircularProgress } from "@mui/material"
 import React from "react"
 import styled from "@emotion/styled"
+import { device } from "../../constants/common"
 
 export const BorderButton = ({ children, onClick }) => {
   return (
@@ -54,5 +55,9 @@ const StyledBorderButton = styled.button`
   font-size: 20px;
   padding: 20px 50px;
   border: none;
-  
+  @media (max-width: ${device.tablet}) {
+    font-size: 17px;
+    min-height: auto;
+    padding: 12px 33px;
+  }
 `

@@ -1,5 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
+import { device } from "../../constants/common"
 
 export const Star = () => {
   return (
@@ -49,6 +50,9 @@ export const BallA = styled.div`
   position: absolute;
   top: 45%;
   left: 5%;
+  @media (max-width: ${device.tablet}) {
+    display: none;
+  }
 `
 export const BallB = styled.div`
   border-radius: 100%;
@@ -58,6 +62,9 @@ export const BallB = styled.div`
   position: absolute;
   top: 75%;
   left: 45%;
+  @media (max-width: ${device.tablet}) {
+    display: none;
+  }
 `
 
 const StyledPlanetA = styled.img`
@@ -67,6 +74,12 @@ const StyledPlanetA = styled.img`
   object-fit: contain;
   width: 15%;
   max-width: 150px;
+  @media (max-width: ${device.tablet}) {
+    top: 5%;
+    right: 10%;
+    width: 73px;
+    left: auto;
+  }
 `
 
 const StyledPlanetB = styled.img`
@@ -76,6 +89,9 @@ const StyledPlanetB = styled.img`
   object-fit: contain;
   width: 10%;
   max-width: 60px;
+  @media (max-width: ${device.tablet}) {
+    display: none;
+  }
 `
 
 const StyledPlanetC = styled.img`
@@ -84,6 +100,9 @@ const StyledPlanetC = styled.img`
   right: 10%;
   object-fit: contain;
   width: 22px;
+  @media (max-width: ${device.tablet}) {
+    display: none;
+  }
 `
 
 const StyledStar = styled.img`
@@ -92,4 +111,7 @@ const StyledStar = styled.img`
   left: ${(p) => p.left};
   object-fit: contain;
   width: 80px;
+  @media (max-width: ${device.tablet}) {
+    display: none;
+  }
 `

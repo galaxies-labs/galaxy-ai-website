@@ -11,14 +11,16 @@ import Sample from "./sample"
 export default function Main() {
   return (
     <div style={{ position: "relative" }}>
-      <AppBar />
+      <AppBar absolute />
       {/* assets */}
+
       <PlanetA />
       <PlanetB />
       <PlanetC />
       <BallA />
       <BallB />
       <Star />
+
       {/* ---- */}
       <Intro>
         <Content>
@@ -51,25 +53,33 @@ const Title = styled.h1`
   font-size: 66px;
   color: #2a267b;
   font-family: "Brlnsdb";
-  line-height: 77px;
   letter-spacing: 3.3px;
   text-transform: uppercase;
   span {
     font-size: 76px;
+    font-family: "Brlnsdb";
+  }
+  @media (max-width: ${device.tablet}) {
+    letter-spacing: 1.6px;
+    font-size: 33px;
+    line-height: 36px;
+    span {
+      font-size: 36px;
+    }
   }
 `
 
 const Intro = styled.div`
   background-color: #f7f7f8;
   width: 100%;
-  height: 100vh;
+  min-height: 100vh;
   background-position: bottom;
   background-image: url("/public/assets/images/bg-wave.svg");
   background-repeat: no-repeat;
   display: flex;
   justify-content: center;
   .content {
-    height: 100%;
+    min-height: 100%;
     .content-1 {
       margin-right: 10%;
       display: flex;
@@ -84,21 +94,23 @@ const Intro = styled.div`
         margin-top: 60px;
       }
       @media (max-width: ${contentWidth}) {
-        h1 {
-          font-size: 55px;
-          letter-spacing: 3px;
-          line-height: 66px;
-          span {
-            font-size: 65px;
-          }
+        margin-right: 5%;
+      }
+      @media (max-width: ${device.tablet}) {
+        a {
+          margin-bottom: 50px;
+          margin-top: 25px;
         }
         .description {
-          font-size: 18px;
-        }
-        .border-button {
-          padding: 10px 50px;
+          font-size: 17px;
         }
       }
+    }
+
+    @media (max-width: ${device.labtop}) {
+      margin-top: 120px;
+      flex-direction: column;
+      align-items: flex-start;
     }
   }
 `
