@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { contentWidth, device } from "../../constants/common"
+import { contentWidth } from "../../constants/common"
 import { Link } from "react-router-dom"
 
 export default function AppBar({ children, absolute }) {
@@ -8,7 +8,7 @@ export default function AppBar({ children, absolute }) {
     <Container absolute={absolute}>
       <Toolbar>
         <Link to='/'>
-          <span className='title'>GALAXY AI</span>
+          <img alt='galaxy' src='/public/assets/images/label.svg' />
         </Link>
         <div>{children}</div>
       </Toolbar>
@@ -24,21 +24,12 @@ const Toolbar = styled.div`
   height: 100%;
   justify-content: space-between;
   margin: auto;
-  .title {
-    font-family: Roboto-Black;
-    cursor: pointer;
-    font-size: 26px;
-    letter-spacing: 1.7px;
-    color: #222;
-    @media (max-width: ${device.tablet}) {
-      font-size: 20px;
-    }
-  }
-  a {
-    text-decoration: none;
-  }
   @media (max-width: ${contentWidth}) {
     padding: 0px 20px;
+  }
+  img {
+    width: 136px;
+    object-fit: contain;
   }
 `
 
