@@ -8,11 +8,15 @@
     "build": "webpack --mode production"
   },
   "dependencies": {
+    "@emotion/react": "^11.9.0",
+    "@emotion/styled": "^11.8.1",
+    "@mui/material": "^5.7.0",
     "dotenv": "^16.0.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-refresh": "^0.13.0",
-    "react-router-dom": "^6.3.0"
+    "react-router-dom": "6",
+    "@emotion/styled": "^5.3.5"
   },
   "devDependencies": {
     "@babel/core": "^7.17.10",
