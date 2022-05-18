@@ -1,19 +1,36 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { ButtonBase, Slider } from "@mui/material"
-import { contentWidth, device } from "../../constants/common"
+import { ButtonBase, Popover, Slider } from "@mui/material"
+import { contentWidth, device } from "../../constants"
+
 
 export default function Setting({ open }) {
   const [param1, setParam1] = React.useState(50)
   const [param2, setParam2] = React.useState(30)
+  const [tooltip, setTooltip] = React.useState(null)
   return (
     <Container className={open ? "open" : ""}>
       <Label>
         Setting
-        <ButtonBase>
+        <ButtonBase onClick={(e) => setTooltip(e.currentTarget)}>
           <img alt='info' src='/public/assets/images/info.svg' />
         </ButtonBase>
       </Label>
+      {/* popover */}
+
+      <Popover
+        open={Boolean(tooltip)}
+        anchorEl={tooltip}
+        onClose={() => setTooltip(null)}
+        anchorOrigin={{
+          vertical: "bottom",
+          horizontal: "left",
+        }}
+      >
+
+      </Popover>
+
+      {/* */}
       <Parameter>
         Parameter 1<span>{param1}</span>
       </Parameter>
@@ -30,7 +47,6 @@ export default function Setting({ open }) {
           thumb: "thumb",
         }}
       />
-
       <Parameter>
         Parameter 2<span>{param2}</span>
       </Parameter>

@@ -1,7 +1,7 @@
 import { CircularProgress } from "@mui/material"
 import React from "react"
 import styled from "@emotion/styled"
-import { device } from "../../constants/common"
+import { device } from "../../constants"
 
 export const BorderButton = ({ children, onClick }) => {
   return (

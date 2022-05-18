@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { FlatButton } from "../../components/common"
-import { device } from "../../constants/common"
+import { device } from "../../constants"
 
 const generated =
   "FamilyTime is the perfect app to share and create memories with your family. FamilyTime is a free, unlimited photo and video editor that allows you to create albums of your memories. It has a special filter for the perfect summer look and is so simple to use."
@@ -14,15 +14,14 @@ export default function Sample() {
 
   React.useEffect(() => {
     if (!buttonRef.current || clicked) return
+    let button = buttonRef.current
 
     let tm = setTimeout(() => {
-      buttonRef.current.className =
-        buttonRef.current.className + " flat-button-animi"
+      button.className = button.className + " flat-button-animi"
+
+      clearTimeout(tm)
       tm = setTimeout(() => {
-        buttonRef.current.className = buttonRef.current.className.replace(
-          "flat-button-animi",
-          ""
-        )
+        button.className = button.className.replace("flat-button-animi", "")
         setClicked(true)
       }, 500)
     }, 500)
@@ -59,7 +58,7 @@ export default function Sample() {
         of photos and videos. It runs on iOS and Android:
       </span>
       <Label>Generated:</Label>
-      <span ref={genTextRef}/>
+      <span ref={genTextRef} />
       <FlatButton innerRef={buttonRef} disabled>
         Generate
       </FlatButton>
@@ -111,6 +110,6 @@ const Container = styled.div`
   @media (max-width: ${device.tablet}) {
     padding: 30px 20px;
     border-radius: 5px;
-    margin-bottom:60px ;
+    margin-bottom: 60px;
   }
 `

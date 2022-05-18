@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { contentWidth, device } from "../../constants/common"
+import { contentWidth, device } from "../../constants"
 
 export default function Footer() {
   return (

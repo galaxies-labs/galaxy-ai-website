@@ -1,6 +1,6 @@
 import React from "react"
 import styled from "@emotion/styled"
-import { contentWidth } from "../../constants/common"
+import { contentWidth } from "../../constants"
 import { Link } from "react-router-dom"
 
 export default function AppBar({ children, absolute }) {

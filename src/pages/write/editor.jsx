@@ -1,7 +1,7 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { FlatButton } from "../../components/common"
-import { device } from "../../constants/common"
+import { device } from "../../constants"
 
 export default function Editor() {
   const [title, setTitle] = React.useState("")

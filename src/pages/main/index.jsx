@@ -4,7 +4,7 @@ import styled from "@emotion/styled"
 import AppBar from "../../components/app-bar"
 import { BorderButton, Content } from "../../components/common"
 import Footer from "../../components/footer"
-import { contentWidth, device } from "../../constants/common"
+import { contentWidth, device } from "../../constants"
 import { BallA, BallB, PlanetA, PlanetB, PlanetC, Star } from "./object"
 import Sample from "./sample"
 
