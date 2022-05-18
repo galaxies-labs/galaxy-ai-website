@@ -2,10 +2,12 @@ import React from "react"
 import styled from "@emotion/styled"
 import { ButtonBase, Popover, Slider } from "@mui/material"
 import { contentWidth, device } from "../../constants"
+import { useDispatch, useSelector } from "react-redux"
+import { setFluency, setRandomness } from "../../store/write"
 
 export default function Setting({ open, onClose }) {
-  const [param1, setParam1] = React.useState(50)
-  const [param2, setParam2] = React.useState(30)
+  const { randomness, fluency } = useSelector((s) => s.write.setting)
+  const dispatch = useDispatch()
   const [tooltip, setTooltip] = React.useState(null)
 
   return (
@@ -36,23 +38,29 @@ export default function Setting({ open, onClose }) {
         }}
         classes={{ paper: "paper" }}
       >
-        <p>Parameter 1</p>
+        <p>Randomness</p>
         <span>
-          Press the circle button next to Style selection to switch style modes
-          at any time .
+          It is more closer to zero, the more unpredictable the topic of the
+          article.
+        </span>
+        <p>Fluency</p>
+        <span>
+          It increases the probability of words. Find the best value for your
+          writing.
         </span>
       </StyledPopover>
 
       <Parameter>
-        Parameter 1<span>{param1}</span>
+        Randomness<span>{randomness}</span>
       </Parameter>
       <StyledSlider
         size='small'
-        defaultValue={param1}
-        value={param1}
-        onChange={(e, value) => setParam1(value)}
-        max={100}
-        min={1}
+        defaultValue={randomness}
+        value={randomness}
+        onChange={(e, value) => dispatch(setRandomness(value))}
+        max={1.0}
+        min={0.1}
+        step={0.01}
         classes={{
           rail: "rail",
           track: "track",
@@ -60,15 +68,16 @@ export default function Setting({ open, onClose }) {
         }}
       />
       <Parameter>
-        Parameter 2<span>{param2}</span>
+        Fluency<span>{fluency}</span>
       </Parameter>
       <StyledSlider
         size='small'
-        defaultValue={param2}
-        value={param2}
-        onChange={(e, value) => setParam2(value)}
+        defaultValue={fluency}
+        value={fluency}
+        onChange={(e, value) => dispatch(setFluency(value))}
         max={100}
-        min={1}
+        min={0}
+        step={1}
         classes={{
           rail: "rail",
           track: "track",
