@@ -3,20 +3,29 @@ import styled from "@emotion/styled"
 import { ButtonBase, Popover, Slider } from "@mui/material"
 import { contentWidth, device } from "../../constants"
 
-export default function Setting({ open }) {
+export default function Setting({ open, onClose }) {
   const [param1, setParam1] = React.useState(50)
   const [param2, setParam2] = React.useState(30)
   const [tooltip, setTooltip] = React.useState(null)
+
   return (
-    <Container className={open ? "open" : ""}>
+    <Container open={open}>
+      <div className='mobile-background' />
+
       <Label>
         Setting
-        <ButtonBase onClick={(e) => setTooltip(e.currentTarget)}>
+        <ButtonBase
+          className='setting-popover'
+          onClick={(e) => setTooltip(e.currentTarget)}
+        >
           <img alt='info' src='/public/assets/images/info.svg' />
         </ButtonBase>
+        <ButtonBase className='setting-close' onClick={onClose}>
+          <img alt='close' src='/public/assets/images/close.svg' />
+        </ButtonBase>
       </Label>
-      {/* popover */}
 
+      {/* popover */}
       <StyledPopover
         open={Boolean(tooltip)}
         anchorEl={tooltip}
@@ -34,7 +43,6 @@ export default function Setting({ open }) {
         </span>
       </StyledPopover>
 
-      {/* */}
       <Parameter>
         Parameter 1<span>{param1}</span>
       </Parameter>
@@ -127,9 +135,33 @@ const Label = styled.p`
   font-size: 17px;
   font-family: "Sans-SemiBold";
   margin: 18px 20px;
+
+  .setting-close {
+    position: absolute;
+    right: 20px;
+    display: none;
+    align-self: flex-end;
+    img {
+      width: 20px;
+      height: 20px;
+    }
+  }
+
+  @media (max-width: ${device.tablet}) {
+    margin-top: 30px;
+    justify-content: flex-start;
+    .setting-close {
+      display: block;
+    }
+    .setting-popover {
+      margin-left: 6px;
+    }
+  }
 `
 const Container = styled.div`
   position: absolute;
+  display: flex;
+  flex-direction: column;
   right: 0px;
   width: 220px;
   @media (max-width: ${contentWidth}) {
@@ -138,6 +170,18 @@ const Container = styled.div`
   @media (max-width: ${device.tablet}) {
     position: fixed;
     top: 0px;
-    left: 100%;
+    z-index: 110;
+    left: ${(p) => (p.open ? "calc(100% - 250px)" : "100%")};
+    background-color: #fff;
+    width: 250px;
+    height: 100vh;
+    .mobile-background {
+      width: calc(100% - 250px);
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
+      position: fixed;
+      left: 0;
+      display: ${(p) => (p.open ? "block" : "none")};
+    }
   }
 `

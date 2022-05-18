@@ -21,7 +21,7 @@ export default function Write() {
       <Content>
         <Editor />
 
-        <Setting open={settingOpen} />
+        <Setting open={settingOpen} onClose={() => setSettingOpen(false)} />
       </Content>
       <Footer />
     </Page>
@@ -53,7 +53,7 @@ const Page = styled.div`
       justify-content: space-between;
     }
     @media (max-width: ${device.tablet}) {
-    margin-bottom: 0px;
+      margin-bottom: 0px;
       margin-top: 0px;
     }
   }
