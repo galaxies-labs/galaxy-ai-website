@@ -3,7 +3,6 @@ import styled from "@emotion/styled"
 import { ButtonBase, Popover, Slider } from "@mui/material"
 import { contentWidth, device } from "../../constants"
 
-
 export default function Setting({ open }) {
   const [param1, setParam1] = React.useState(50)
   const [param2, setParam2] = React.useState(30)
@@ -18,7 +17,7 @@ export default function Setting({ open }) {
       </Label>
       {/* popover */}
 
-      <Popover
+      <StyledPopover
         open={Boolean(tooltip)}
         anchorEl={tooltip}
         onClose={() => setTooltip(null)}
@@ -26,9 +25,14 @@ export default function Setting({ open }) {
           vertical: "bottom",
           horizontal: "left",
         }}
+        classes={{ paper: "paper" }}
       >
-
-      </Popover>
+        <p>Parameter 1</p>
+        <span>
+          Press the circle button next to Style selection to switch style modes
+          at any time .
+        </span>
+      </StyledPopover>
 
       {/* */}
       <Parameter>
@@ -66,6 +70,24 @@ export default function Setting({ open }) {
     </Container>
   )
 }
+
+const StyledPopover = styled(Popover)`
+  p {
+    font-family: Sans-SemiBold;
+    color: #222222;
+    font-size: 16px;
+  }
+  span {
+    font-size: 16px;
+    color: #777;
+    margin-top: 10px;
+  }
+  .paper {
+    max-width: 260px;
+    padding: 10px 20px 20px 20px;
+    border-radius: 5px;
+  }
+`
 
 const Parameter = styled.span`
   display: flex;
