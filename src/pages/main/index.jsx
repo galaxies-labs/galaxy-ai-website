@@ -37,7 +37,7 @@ export default function Main() {
               <br />
               AI model supports that you create stories and worldviews.
             </span>
-            <Link to='/write'>
+            <Link to='/write' className='flat-button-link'>
               <BorderButton>Try prototype</BorderButton>
             </Link>
           </div>
@@ -90,15 +90,14 @@ const Intro = styled.div`
         font-size: 20px;
         color: #888888;
       }
-      a {
+      .flat-button-link {
         margin-top: 60px;
       }
       @media (max-width: ${contentWidth}) {
         margin-right: 5%;
       }
       @media (max-width: ${device.tablet}) {
-        a {
-          margin-bottom: 50px;
+        .flat-button-link {
           margin-top: 25px;
         }
         .description {
@@ -111,6 +110,9 @@ const Intro = styled.div`
       margin-top: 120px;
       flex-direction: column;
       align-items: flex-start;
+      .flat-button-link {
+        margin-bottom: 50px;
+      }
     }
   }
 `
