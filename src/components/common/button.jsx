@@ -40,7 +40,7 @@ const StyledFlatButton = styled.button`
   border: none;
   padding: 10px 20px;
   :disabled {
-    cursor: wait;
+    cursor: default;
   }
 `
 
