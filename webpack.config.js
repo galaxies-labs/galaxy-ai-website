@@ -14,7 +14,6 @@ module.exports = (env, argv) => {
   }
 
   return {
-
     mode: argv.mode,
     devtool: isDevelopment ? "source-map" : false,
     entry: "./src/index.js",
@@ -24,7 +23,8 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, "build"),
     },
     resolve: {
-      extensions: ['.js', '.jsx']
+      extensions: [".js", ".jsx"],
+      fallback: { "buffer": false }
     },
     module: {
       rules: [
