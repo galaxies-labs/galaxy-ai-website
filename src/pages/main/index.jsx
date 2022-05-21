@@ -24,7 +24,7 @@ export default function Main() {
                 on WEB<span>3</span>
               </Title>
               <span className='description'>
-                Do you need an idea or a word?
+                Do you need ideas and words?
                 <br />
                 AI model supports that you create stories and worldviews.
               </span>

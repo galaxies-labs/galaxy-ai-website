@@ -4,7 +4,7 @@ import { FlatButton } from "../../components/common"
 import { device } from "../../constants"
 
 const generated =
-  "FamilyTime is the perfect app to share and create memories with your family. FamilyTime is a free, unlimited photo and video editor that allows you to create albums of your memories. It has a special filter for the perfect summer look and is so simple to use."
+  "How does it work?  This part of this article will deal with the technical details of how to create a blockchain that could be used to develop a decentralized multi-user virtual world."
 
 export default function Sample() {
   const [clicked, setClicked] = React.useState(false)
@@ -53,9 +53,9 @@ export default function Sample() {
     <Container>
       <Label>Typed:</Label>
       <span>
-        Create promo copy for the FamilyTime mobile application. It allows
-        unlimited uploading, special filters and makes it easy to create albums
-        of photos and videos. It runs on iOS and Android:
+        It serves as the basis for the protocol that can develop into a
+        metaverse where individual worldviews are gathered, and serves as the
+        backbone of the decentralized metaverse.
       </span>
       <Label>Generated:</Label>
       <span ref={genTextRef} />
