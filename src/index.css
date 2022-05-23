@@ -13,6 +13,11 @@ code {
 }
 
 @font-face {
+  font-family: "NotoSansKR-Bold";
+  src: url(/public/assets/fonts/NotoSansKR-Bold.otf) format("opentype");
+}
+
+@font-face {
   font-family: "Heebo-Bold";
   src: url(/public/assets/fonts/Heebo-Bold.ttf) format("truetype");
 }
@@ -31,6 +36,10 @@ code {
 @font-face {
   font-family: "Sans-SemiBold";
   src: url(/public/assets/fonts/SourceSansPro-SemiBold.ttf) format("truetype");
+}
+@font-face {
+  font-family: "Sans-Black";
+  src: url(/public/assets/fonts/SourceSansPro-Black.ttf) format("truetype");
 }
 
 * {

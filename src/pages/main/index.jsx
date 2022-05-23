@@ -37,10 +37,137 @@ export default function Main() {
         </Background>
       </Intro>
 
+      <AboutStoryAI>
+        <Label>Galaxy Story AI</Label>
+        <Message>
+          Galaxy Story AI is an artificial intelligence service that can help
+          when you brainstorm ideas and words.
+          <br />
+          Analyze sentences and words using a GPT-J-based model to generate the
+          following sentences.
+        </Message>
+        <div className='grid-container'>
+          <div className='item'>
+            <span className='subtitle'>Idea brainstorming</span>
+            <span className='desc'>
+              We encounter many difficulties during manuscript writing, such as
+              lack of ideas and limited vocabulary.
+            </span>
+            <img alt='ai-1' src='/public/assets/images/story-ai-1.png' />
+          </div>
+          <div className='item'>
+            <span className='subtitle'>Utilizing galaxy AI</span>
+            <span className='desc'>
+              Galaxy Story AI creates the following manuscript by analyzing the
+              context and keywords of the article.
+            </span>
+            <img
+              style={{ width: "300px", marginRight: "-30px" }}
+              alt='ai-2'
+              src='/public/assets/images/story-ai-2.png'
+            />
+          </div>
+          <div className='item'>
+            <span className='subtitle'>GLX Payments for the community</span>
+            <span className='desc'>
+              GLX paid in Galaxy AI Service will be returned to the community
+              pool.
+            </span>
+            <img alt='ai-3' src='/public/assets/images/story-ai-3.png' />
+          </div>
+          <div className='item'>
+            <span className='subtitle'>Publish your universe</span>
+            <span className='desc'>
+              Build a unique and expansive universe with Galaxy AI.
+            </span>
+            <img alt='ai-4' src='/public/assets/images/story-ai-4.png' />
+          </div>
+        </div>
+      </AboutStoryAI>
+
       <Footer />
     </div>
   )
 }
+
+const Message = styled.div`
+  text-align: center;
+  margin: auto;
+  margin-top: 1.5rem;
+  color: #222;
+  font-size: 1rem;
+  line-height: 26px;
+`
+
+const Label = styled.div`
+  text-align: center;
+  margin: auto;
+  color: #222222;
+  font-size: 3rem;
+  font-family: NotoSansKR-Bold;
+  @media (max-width: ${device.tablet}) {
+    font-size: 2.375rem;
+  }
+`
+
+const AboutStoryAI = styled.div`
+  padding-top: 140px;
+  margin: auto;
+  margin-bottom: 160px;
+  width: 100%;
+  max-width: 904px;
+  .grid-container {
+    margin-top: 50px;
+    display: flex;
+    align-items: stretch;
+    flex-wrap: wrap;
+    .item {
+      padding: 40px 45px;
+      margin-top: 24px;
+      width: calc((904px - 24px) / 2);
+      border-radius: 16px;
+      background-color: #f7f7f7;
+      display: flex;
+      flex-direction: column;
+      .subtitle {
+        margin-bottom: 15px;
+        color: #222222;
+        font-family: Sans-Black;
+        font-size: 26px;
+      }
+      .desc {
+        color: #222222;
+        font-size: 16px;
+        line-height: 24px;
+      }
+      :nth-of-type(odd) {
+        margin-right: 24px;
+      }
+      img {
+        align-self: flex-end;
+        margin-top: 20px;
+        width: 255px;
+        height: 180px;
+        object-fit: contain;
+      }
+    }
+  }
+  @media (max-width: 904px) {
+    .grid-container {
+      flex-direction: column;
+      align-items: stretch;
+      .item {
+        width: auto;
+        margin: 24px 24px 0px 24px;
+        padding: 30px;
+      }
+    }
+  }
+  @media (max-width: ${device.tablet}) {
+    padding-top: 100px;
+    margin-bottom: 100px;
+  }
+`
 
 const Background = styled.div`
   background-image: url("/public/assets/images/bg.png");

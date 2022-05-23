@@ -53,7 +53,7 @@ const Page = styled.div`
       justify-content: space-between;
     }
     @media (max-width: ${device.tablet}) {
-      margin-bottom: 0px;
+      margin-bottom: 30px;
       margin-top: 0px;
     }
   }
