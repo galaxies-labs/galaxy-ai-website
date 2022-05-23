@@ -92,7 +92,7 @@ export default function Main() {
 
 const Message = styled.div`
   text-align: center;
-  margin: auto;
+  margin: auto 24px;
   margin-top: 1.5rem;
   color: #222;
   font-size: 1rem;
@@ -101,7 +101,7 @@ const Message = styled.div`
 
 const Label = styled.div`
   text-align: center;
-  margin: auto;
+  margin: auto 24px;
   color: #222222;
   font-size: 3rem;
   font-family: NotoSansKR-Bold;
