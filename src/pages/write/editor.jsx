@@ -24,22 +24,34 @@ export default function Editor() {
 
   /**
    *
-   * @param {string} text
+   * @param {String} text
+   * @param {Boolean} nextPara
    * @param {Function} cb
    */
-  const updateGeneratedText = (text, cb) => {
+  const updateGeneratedText = (text, nextPara, cb) => {
     let doc = genHtmlByText(descriptionRef.current.innerHTML)
     let body = doc.getElementsByTagName("body").item(0)
 
-    let np = document.createElement("p")
-    body.appendChild(np)
+    let np
+    if (nextPara) {
+      np = document.createElement("p")
+      body.appendChild(np)
+    } else {
+      np = body.childNodes.item(body.childNodes.length - 1)
+    }
+
+    let defaultText = np.innerText || ""
+    if (defaultText) {
+      defaultText = defaultText.trim()
+      defaultText = defaultText + " "
+    }
 
     let ti = 1
     let i = setInterval(() => {
-      np.innerText = text.substring(0, ti)
+      np.innerText = defaultText + text.substring(0, ti)
       ti++
       descriptionRef.current.innerHTML = body.innerHTML
-      if (np.innerText === text) {
+      if (np.innerText === defaultText + text) {
         clearInterval(i)
         setDescription(body.innerHTML)
         //focus cursor
@@ -57,7 +69,9 @@ export default function Editor() {
 
     if (!body.lastElementChild) return
 
+    let genNextParagraph = false
     if (!body.lastElementChild.textContent) {
+      genNextParagraph = true
       //remove all empty node
       descriptionRef.current.innerHTML =
         descriptionRef.current.innerHTML.replace(
@@ -65,7 +79,8 @@ export default function Editor() {
           ""
         )
       setDescription(descriptionRef.current.innerHTML)
-      return handleGenerate()
+      doc = genHtmlByText(descriptionRef.current.innerHTML)
+      body = doc.getElementsByTagName("body").item(0)
     }
 
     setLoading(true)
@@ -93,14 +108,13 @@ export default function Editor() {
       childIndex--
     }
 
-
     axios
       .post("/gen-text", {
         text: input.trim(),
         datas: writeParams,
       })
       .then((res) =>
-        updateGeneratedText(res.data.data, () => {
+        updateGeneratedText(res.data.data, genNextParagraph, () => {
           setLoading(false)
         })
       )
