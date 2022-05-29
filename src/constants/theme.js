@@ -7,7 +7,7 @@ export const lightTheme = {
 }
 
 export const darkTheme = {
-  writePaper: "#333",
+  writePaper: "rgb(24,24,24)",
   text: { default: "rgb(243, 246, 249)" },
   action: {
     background: "#5954cc",

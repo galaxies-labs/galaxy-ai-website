@@ -187,10 +187,10 @@ export default function Editor() {
 
 const Container = styled(Box)`
   padding: 50px;
-  border-radius: 10px;
+  border-radius: ${(p) => (p.theme.palette.mode === "dark" ? "5px" : "10px")};
   box-shadow: ${(p) =>
     p.theme.palette.mode === "dark" ? "none" : "0px 3px 10px 0 #ddd"};
-  background-color: ${(p) => p.theme.palette.background.default};
+  background-color: ${(p) => p.theme.palette.writePaper};
   max-width: 740px;
   width: 100%;
   display: flex;
@@ -204,6 +204,7 @@ const Container = styled(Box)`
     min-width: 140px;
   }
   @media (max-width: ${device.labtop}) {
+    background-color: ${(p) => p.theme.palette.background.default};
     flex: 1;
     width: auto;
     box-shadow: none;

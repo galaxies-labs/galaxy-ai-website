@@ -25,7 +25,6 @@ export default function Write() {
       </AppBar>
       <Content>
         <Editor />
-
         <Setting open={settingOpen} onClose={() => setSettingOpen(false)} />
       </Content>
       <Footer />
@@ -43,6 +42,7 @@ const Page = styled.div`
   display: flex;
   min-height: 100vh;
   flex-direction: column;
+  background-color: ${(p) => p.theme.palette.background.default};
   .content {
     position: relative;
     margin-top: 25px;
@@ -56,8 +56,5 @@ const Page = styled.div`
       margin-bottom: 30px;
       margin-top: 0px;
     }
-  }
-  @media (min-width: ${device.labtop}) {
-    background-color: ${(p) => p.theme.palette.writePaper};
   }
 `
