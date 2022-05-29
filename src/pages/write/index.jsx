@@ -6,7 +6,8 @@ import Footer from "../../components/footer"
 import { contentWidth, device } from "../../constants"
 import Editor from "./editor"
 import Setting from "./setting"
-import { ButtonBase } from "@mui/material"
+import { IconButton } from "@mui/material"
+import { SettingsOutlined } from "@mui/icons-material"
 
 export default function Write() {
   const [settingOpen, setSettingOpen] = React.useState(false)
@@ -14,9 +15,13 @@ export default function Write() {
   return (
     <Page>
       <AppBar>
-        <MobileSetting onClick={() => setSettingOpen((o) => !o)}>
-          <img alt='setting' src='/public/assets/images/setting.svg' />
-        </MobileSetting>
+        <StyledIconButton
+          onClick={() => {
+            setSettingOpen((v) => !v)
+          }}
+        >
+          <SettingsOutlined />
+        </StyledIconButton>
       </AppBar>
       <Content>
         <Editor />
@@ -28,12 +33,7 @@ export default function Write() {
   )
 }
 
-const MobileSetting = styled(ButtonBase)`
-  img {
-    width: 24px;
-    height: 24px;
-    object-fit: contain;
-  }
+const StyledIconButton = styled(IconButton)`
   @media (min-width: ${device.tablet}) {
     display: none;
   }
@@ -56,5 +56,8 @@ const Page = styled.div`
       margin-bottom: 30px;
       margin-top: 0px;
     }
+  }
+  @media (min-width: ${device.labtop}) {
+    background-color: ${(p) => p.theme.palette.writePaper};
   }
 `

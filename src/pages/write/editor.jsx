@@ -5,6 +5,7 @@ import { device } from "../../constants"
 import { genHtmlByText, replaceHtmlTags } from "../../utils"
 import axios from "../../api/axios"
 import { useSelector } from "react-redux"
+import { Box } from "@mui/material"
 
 export default function Editor() {
   const writeParams = useSelector((s) => s.write.setting)
@@ -184,11 +185,12 @@ export default function Editor() {
   )
 }
 
-const Container = styled.div`
+const Container = styled(Box)`
   padding: 50px;
-  background-color: #fff;
   border-radius: 10px;
-  box-shadow: 0px 3px 10px 0 #ddd;
+  box-shadow: ${(p) =>
+    p.theme.palette.mode === "dark" ? "none" : "0px 3px 10px 0 #ddd"};
+  background-color: ${(p) => p.theme.palette.background.default};
   max-width: 740px;
   width: 100%;
   display: flex;
@@ -219,9 +221,14 @@ const StyledTitleInput = styled.input`
   border: none;
   font-family: "Sans-Regular";
   letter-spacing: -0.28px;
-  border-bottom: 1px solid #eeeeee;
+  border-bottom: 1px solid ${(p) => p.theme.palette.divider};
+  background-color: transparent;
+  color: ${(p) => p.theme.palette.text.default};
   :focus {
     outline: none;
+  }
+  ::placeholder {
+    color: ${(p) => p.theme.palette.text.disabled};
   }
 `
 
@@ -232,7 +239,7 @@ const StyledDescription = styled.div`
   padding-top: 26px;
   padding-bottom: 26px;
   font-family: "Sans-Regular";
-  color: #000;
+  color: ${(p) => p.theme.palette.text.default};
   font-size: 18px;
   line-height: 26px;
   border: none;
@@ -251,7 +258,7 @@ const StyledDescription = styled.div`
     content: attr(placeholder) !important;
     font-style: italic;
     position: absolute;
-    color: #b3b3b1;
+    color: ${(p) => p.theme.palette.text.disabled};
     left: 0;
     top: 0;
     white-space: pre;

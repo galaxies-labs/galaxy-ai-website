@@ -1,23 +1,32 @@
 import React from "react"
 import styled from "@emotion/styled"
 import { contentWidth, device } from "../../constants"
+import { useTheme } from "@mui/system"
 
-export default function Footer() {
+export default function Footer({ themeEnabled = true }) {
+  const theme = useTheme()
+
+  const getIconPath = (prefix) => {
+    return `/public/assets/images/${
+      themeEnabled ? theme.palette.mode : "light"
+    }/${prefix}.svg`
+  }
+
   return (
-    <Container>
+    <Container themeEnabled={themeEnabled}>
       <span className='company'>GALAXIES LABS</span>
       <Community>
         <a target={"_blank"} href='https://github.com/galaxies-labs'>
-          <img alt='github' src='/public/assets/images/github.svg' />
+          <img alt='github' src={getIconPath("github")} />
         </a>
         <a target={"_blank"} href='https://medium.com/@galaxyuniverse'>
-          <img alt='medium' src='/public/assets/images/medium.svg' />
+          <img alt='medium' src={getIconPath("medium")} />
         </a>
         <a target={"_blank"} href='https://twitter.com/glxuniverse'>
-          <img alt='twitter' src='/public/assets/images/twitter.svg' />
+          <img alt='twitter' src={getIconPath("twitter")} />
         </a>
         <a target={"_blank"} href='https://discord.gg/DkPNtpJQ8C'>
-          <img alt='discord' src='/public/assets/images/discord.svg' />
+          <img alt='discord' src={getIconPath("discord")} />
         </a>
       </Community>
     </Container>
@@ -56,26 +65,26 @@ const Container = styled.div`
   max-width: 1248px;
   display: flex;
   align-items: center;
-  border-top: 1px solid #dddddd;
+  border-top: 1px solid ${(p) => p.theme.palette.divider};
   justify-content: space-between;
   padding-top: 36px;
   padding-bottom: 36px;
-  margin: 30px auto;
+  margin: 0px auto;
   .company {
     font-size: 18px;
-    color: #000;
+    color: ${(p) =>
+      p.themeEnabled ? p.theme.palette.text.default : "#000"};
     letter-spacing: 3.6px;
     font-family: Heebo-Bold;
   }
 
   @media (max-width: ${contentWidth}) {
-    margin: 30px 20px 30px 20px;
+    margin: 30px 20px 0px 20px;
     width: calc(100% - 40px);
   }
   @media (max-width: ${device.tablet}) {
     padding-top: 24px;
     padding-bottom: 24px;
-    margin: 25px auto;
     .company {
       font-size: 14px;
       .img {

@@ -4,6 +4,7 @@ import { ButtonBase, Popover, Slider } from "@mui/material"
 import { contentWidth, device } from "../../constants"
 import { useDispatch, useSelector } from "react-redux"
 import { setFluency, setRandomness } from "../../store/write"
+import { Close } from "@mui/icons-material"
 
 export default function Setting({ open, onClose }) {
   const { randomness, fluency } = useSelector((s) => s.write.setting)
@@ -23,7 +24,7 @@ export default function Setting({ open, onClose }) {
           <img alt='info' src='/public/assets/images/info.svg' />
         </ButtonBase>
         <ButtonBase className='setting-close' onClick={onClose}>
-          <img alt='close' src='/public/assets/images/close.svg' />
+          <Close />
         </ButtonBase>
       </Label>
 
@@ -91,12 +92,12 @@ export default function Setting({ open, onClose }) {
 const StyledPopover = styled(Popover)`
   p {
     font-family: Sans-SemiBold;
-    color: #222222;
+    color: ${(p) => p.theme.palette.text.default};
     font-size: 16px;
   }
   span {
     font-size: 16px;
-    color: #777;
+    color: ${(p) => p.theme.palette.text.secondary};
     margin-top: 10px;
   }
   .paper {
@@ -111,7 +112,7 @@ const Parameter = styled.span`
   align-items: center;
   justify-content: space-between;
   font-size: 14px;
-  color: #222222;
+  color: ${(p) => p.theme.palette.text.default};
   margin: 30px 20px 10px 20px;
   span {
     font-size: 15px;
@@ -124,21 +125,21 @@ const StyledSlider = styled(Slider)`
   margin: 0px 20px;
   width: calc(100% - 40px) !important;
   svg {
-    color: #7d77ff;
+    color: ${(p) => p.theme.palette.action.background};
   }
   .rail {
     background-color: #eeeeee;
   }
   .track {
-    background-color: #7d77ff;
+    background-color: ${(p) => p.theme.palette.action.background};
   }
   .thumb {
-    background-color: #7d77ff;
+    background-color: ${(p) => p.theme.palette.action.background};
   }
 `
 
 const Label = styled.p`
-  color: #222;
+  color: ${(p) => p.theme.palette.text.default};
   display: flex;
   justify-content: space-between;
   font-size: 17px;
@@ -181,7 +182,7 @@ const Container = styled.div`
     top: 0px;
     z-index: 110;
     left: ${(p) => (p.open ? "calc(100% - 250px)" : "100%")};
-    background-color: #fff;
+    background-color: ${(p) => p.theme.palette.background.default};
     width: 250px;
     height: 100vh;
     .mobile-background {

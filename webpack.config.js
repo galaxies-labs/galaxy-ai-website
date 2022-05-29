@@ -64,6 +64,8 @@ module.exports = (env, argv) => {
         patterns: [
           { from: "public/manifest.json", to: "public/manifest.json" },
           { from: "public/assets/images/*", to: "" },
+          { from: "public/assets/images/dark/*", to: "" },
+          { from: "public/assets/images/light/*", to: "" },
         ],
       }),
       new HtmlWebpackPlugin({

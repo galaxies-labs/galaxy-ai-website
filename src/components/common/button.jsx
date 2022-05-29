@@ -31,7 +31,7 @@ export const FlatButton = ({
 }
 
 const StyledFlatButton = styled.button`
-  background-color: #7d77ff;
+  background-color: ${(p) => p.theme.palette.action.background};
   border-radius: 4px;
   font-size: 18px;
   cursor: pointer;

@@ -9,9 +9,8 @@ import Sample from "./sample"
 
 export default function Main() {
   return (
-    <div style={{ position: "relative" }}>
-      <AppBar absolute />
-
+    <Container>
+      <AppBar absolute themeEnabled={false} />
       <Intro>
         <Background>
           <Content>
@@ -85,10 +84,16 @@ export default function Main() {
         </div>
       </AboutStoryAI>
 
-      <Footer />
-    </div>
+      <Footer themeEnabled={false} />
+    </Container>
   )
 }
+
+// do not support theme mode
+const Container = styled.div`
+  background-color: #fff;
+  position: relative;
+`
 
 const Message = styled.div`
   text-align: center;

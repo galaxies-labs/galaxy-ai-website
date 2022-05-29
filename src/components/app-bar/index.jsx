@@ -2,15 +2,39 @@ import React from "react"
 import styled from "@emotion/styled"
 import { contentWidth } from "../../constants"
 import { Link } from "react-router-dom"
+import { ColorModeContext } from "../../context/colorMode"
+import { IconButton, useTheme } from "@mui/material"
+import { DarkModeOutlined, LightModeOutlined } from "@mui/icons-material"
 
-export default function AppBar({ children, absolute }) {
+export default function AppBar({ children, absolute, themeEnabled = true }) {
+  const theme = useTheme()
+  const colorMode = React.useContext(ColorModeContext)
+
   return (
     <Container absolute={absolute}>
       <Toolbar>
         <Link to='/'>
-          <img alt='galaxy' src='/public/assets/images/label.svg' />
+          <img
+            alt='galaxy'
+            src={
+              "/public/assets/images/" +
+              (themeEnabled ? theme.palette.mode : "light") +
+              "/label.svg"
+            }
+          />
         </Link>
-        <div>{children}</div>
+        <div>
+          {themeEnabled && (
+            <IconButton onClick={colorMode.toggleColorMode}>
+              {theme.palette.mode === "dark" ? (
+                <LightModeOutlined />
+              ) : (
+                <DarkModeOutlined />
+              )}
+            </IconButton>
+          )}
+          {children}
+        </div>
       </Toolbar>
     </Container>
   )
